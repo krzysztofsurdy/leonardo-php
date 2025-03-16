@@ -385,10 +385,10 @@ class GenerationsPostBody extends \ArrayObject
     /**
      * @param list<UserElementInput>|null $elements
      */
-    public function setUserElements(?array $elements): self
+    public function setUserElements(?array $userElements): self
     {
         $this->initialized['userElements'] = true;
-        $this->elements = $elements;
+        $this->userElementInputs = $userElements;
 
         return $this;
     }
