@@ -1,0 +1,8 @@
+<?php
+
+return [
+    'openapi-file' => __DIR__ . '/open-api.json',
+    'namespace' => 'CedricZiel\LeonardoAI\Generated',
+    'directory' => __DIR__ . '/generated',
+    'use-fixer' => true,
+];
