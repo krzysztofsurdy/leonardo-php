@@ -107,6 +107,16 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             } elseif (\array_key_exists('elements', $data) && $data['elements'] === null) {
                 $object->setElements(null);
             }
+            if (\array_key_exists('userElements', $data) && $data['userElements'] !== null) {
+                $values_1 = [];
+                foreach ($data['userElements'] as $value_1) {
+                    $values_1[] = $this->denormalizer->denormalize($value_1, \CedricZiel\LeonardoAI\Generated\Model\UserElementInput::class, 'json', $context);
+                }
+                $object->setUserElements($values_1);
+                unset($data['userElements']);
+            } elseif (\array_key_exists('userElements', $data) && $data['userElements'] === null) {
+                $object->setUserElements(null);
+            }
             if (\array_key_exists('expandedDomain', $data) && $data['expandedDomain'] !== null) {
                 $object->setExpandedDomain($data['expandedDomain']);
                 unset($data['expandedDomain']);

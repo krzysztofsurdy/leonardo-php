@@ -42,6 +42,10 @@ class GenerationsPostBody extends \ArrayObject
      */
     protected $elements;
     /**
+     * @var list<UserElementInput>|null
+     */
+    protected $userElementInputs;
+    /**
      * Enable to use the Expanded Domain feature of Alchemy.
      *
      * @var bool|null
@@ -365,6 +369,25 @@ class GenerationsPostBody extends \ArrayObject
     public function setElements(?array $elements): self
     {
         $this->initialized['elements'] = true;
+        $this->elements = $elements;
+
+        return $this;
+    }
+
+    /**
+     * @return list<UserElementInput>|null
+     */
+    public function getUserElements(): ?array
+    {
+        return $this->userElementInputs;
+    }
+
+    /**
+     * @param list<UserElementInput>|null $elements
+     */
+    public function setUserElements(?array $elements): self
+    {
+        $this->initialized['userElements'] = true;
         $this->elements = $elements;
 
         return $this;
