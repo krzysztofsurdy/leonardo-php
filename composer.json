@@ -5,8 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "CedricZiel\\LeonardoaiPhp\\": "src/",
-            "CedricZiel\\LeonardoaiPhp\\Generated\\": "generated/"
+            "CedricZiel\\LeonardoAI\\": "src/",
+            "CedricZiel\\LeonardoAI\\Generated\\": "generated/"
         }
     },
     "authors": [
