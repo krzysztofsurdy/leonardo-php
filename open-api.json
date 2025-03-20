@@ -4177,7 +4177,7 @@
             "userLoraId": {
               "nullable": true,
               "title": "Integer",
-              "type": "number",
+              "type": "integer",
               "description": "Unique identifier for user element."
             },
             "weight": {

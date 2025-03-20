@@ -48,9 +48,6 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
             $object = new \LeonardoAI\Model\UserElementInput();
-            if (\array_key_exists('userLoraId', $data) && \is_int($data['userLoraId'])) {
-                $data['userLoraId'] = (float) $data['userLoraId'];
-            }
             if (\array_key_exists('weight', $data) && \is_int($data['weight'])) {
                 $data['weight'] = (float) $data['weight'];
             }
@@ -128,9 +125,6 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
             $object = new \LeonardoAI\Model\UserElementInput();
-            if (\array_key_exists('userLoraId', $data) && \is_int($data['userLoraId'])) {
-                $data['userLoraId'] = (float) $data['userLoraId'];
-            }
             if (\array_key_exists('weight', $data) && \is_int($data['weight'])) {
                 $data['weight'] = (float) $data['weight'];
             }

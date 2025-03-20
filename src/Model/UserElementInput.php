@@ -24,7 +24,7 @@ class UserElementInput extends \ArrayObject
     /**
      * Unique identifier for user element.
      *
-     * @var float|null
+     * @var int|null
      */
     protected $userLoraId;
     /**
@@ -37,7 +37,7 @@ class UserElementInput extends \ArrayObject
     /**
      * Unique identifier for user element.
      */
-    public function getUserLoraId(): ?float
+    public function getUserLoraId(): ?int
     {
         return $this->userLoraId;
     }
@@ -45,7 +45,7 @@ class UserElementInput extends \ArrayObject
     /**
      * Unique identifier for user element.
      */
-    public function setUserLoraId(?float $userLoraId): self
+    public function setUserLoraId(?int $userLoraId): self
     {
         $this->initialized['userLoraId'] = true;
         $this->userLoraId = $userLoraId;
