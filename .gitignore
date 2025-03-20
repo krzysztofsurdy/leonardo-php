@@ -1,2 +1,5 @@
 /vendor/
 .php-cs-fixer.cache
+.idea
+*.DS_Store
+composer.lock

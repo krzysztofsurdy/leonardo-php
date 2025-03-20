@@ -19,6 +19,9 @@
         "name": "Elements"
       },
       {
+        "name": "UserElements"
+      },
+      {
         "name": "Image"
       },
       {
@@ -192,6 +195,13 @@
                     "elements": {
                       "items": {
                         "$ref": "#/components/schemas/element_input"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "userElements": {
+                      "items": {
+                        "$ref": "#/components/schemas/user_element_input"
                       },
                       "nullable": true,
                       "type": "array"
@@ -4159,6 +4169,25 @@
             }
           },
           "title": "element_input",
+          "type": "object"
+        },
+        "user_element_input": {
+          "nullable": false,
+          "properties": {
+            "userLoraId": {
+              "nullable": true,
+              "title": "Integer",
+              "type": "number",
+              "description": "Unique identifier for user element."
+            },
+            "weight": {
+              "nullable": true,
+              "title": "Float",
+              "type": "number",
+              "description": "Weight for the element"
+            }
+          },
+          "title": "user_element_input",
           "type": "object"
         },
         "float8": {

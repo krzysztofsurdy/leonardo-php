@@ -1,7 +1,7 @@
-# leonardoai-php
+# leonardo-php
 
 Leonardo AI SDK for PHP
-The original author is [Cédric Ziel]
+Inspired by cedricziel/leonardoai-php
 
 ## Install
 
@@ -33,7 +33,3 @@ $body = GenerationsPostBody();
 $body->setPrompt('A cat on a tree');
 $res = $client->createGeneration($body);
 ```
-
-## License
-
-MIT
