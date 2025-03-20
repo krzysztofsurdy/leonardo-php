@@ -1,12 +1,12 @@
 # leonardo-php
 
 Leonardo AI SDK for PHP
-Inspired by cedricziel/leonardoai-php
+Continuation of cedricziel/leonardoai-php
 
 ## Install
 
 ```bash
-composer require cedricziel/leonardoai-php
+composer require krzysztofsurdy/leonardoai-php
 ```
 
 ## Usage
