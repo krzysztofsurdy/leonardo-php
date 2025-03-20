@@ -8,9 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Normalizer;
+namespace LeonardoAI\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
+use LeonardoAI\Runtime\Normalizer\CheckArray;
+use LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -18,8 +20,6 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Ydrus\LeonardoAI\Runtime\Normalizer\CheckArray;
-use Ydrus\LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
     class VariationsIdGetResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class;
+            return $type === \LeonardoAI\Model\VariationsIdGetResponse200::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\VariationsIdGetResponse200::class;
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,14 +47,14 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200();
+            $object = new \LeonardoAI\Model\VariationsIdGetResponse200();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
             if (\array_key_exists('generated_image_variation_generic', $data)) {
                 $values = [];
                 foreach ($data['generated_image_variation_generic'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class, 'json', $context);
                 }
                 $object->setGeneratedImageVariationGeneric($values);
                 unset($data['generated_image_variation_generic']);
@@ -89,7 +89,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class => false];
+            return [\LeonardoAI\Model\VariationsIdGetResponse200::class => false];
         }
     }
 } else {
@@ -102,12 +102,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class;
+            return $type === \LeonardoAI\Model\VariationsIdGetResponse200::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\VariationsIdGetResponse200::class;
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -118,14 +118,14 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200();
+            $object = new \LeonardoAI\Model\VariationsIdGetResponse200();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
             if (\array_key_exists('generated_image_variation_generic', $data)) {
                 $values = [];
                 foreach ($data['generated_image_variation_generic'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class, 'json', $context);
                 }
                 $object->setGeneratedImageVariationGeneric($values);
                 unset($data['generated_image_variation_generic']);
@@ -163,7 +163,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class => false];
+            return [\LeonardoAI\Model\VariationsIdGetResponse200::class => false];
         }
     }
 }

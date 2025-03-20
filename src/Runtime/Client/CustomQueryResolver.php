@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Runtime\Client;
+namespace LeonardoAI\Runtime\Client;
 
 use Symfony\Component\OptionsResolver\Options;
 

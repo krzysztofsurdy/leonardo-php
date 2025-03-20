@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Runtime\Normalizer;
+namespace LeonardoAI\Runtime\Normalizer;
 
 trait CheckArray
 {

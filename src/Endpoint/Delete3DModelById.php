@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class Delete3DModelById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class Delete3DModelById extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
     protected $id;
 
     /**
@@ -20,7 +20,7 @@ class Delete3DModelById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint im
      *
      * @param string $id _"id" is required (enter it either in parameters or request body)_
      */
-    public function __construct(string $id, ?\Ydrus\LeonardoAI\Model\Models3dIdDeleteBody $requestBody = null)
+    public function __construct(string $id, ?\LeonardoAI\Model\Models3dIdDeleteBody $requestBody = null)
     {
         $this->id = $id;
         $this->body = $requestBody;
@@ -38,7 +38,7 @@ class Delete3DModelById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint im
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Ydrus\LeonardoAI\Model\Models3dIdDeleteBody) {
+        if ($this->body instanceof \LeonardoAI\Model\Models3dIdDeleteBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -51,14 +51,14 @@ class Delete3DModelById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint im
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200|null
+     * @return \LeonardoAI\Model\Models3dIdDeleteResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\Models3dIdDeleteResponse200', 'json');
         }
     }
 

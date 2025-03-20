@@ -8,9 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Normalizer;
+namespace LeonardoAI\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
+use LeonardoAI\Runtime\Normalizer\CheckArray;
+use LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -18,8 +20,6 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Ydrus\LeonardoAI\Runtime\Normalizer\CheckArray;
-use Ydrus\LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
     class GenerationsIdGetResponse200GenerationsByPkNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
+            return $type === \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk();
+            $object = new \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk();
             if (\array_key_exists('guidanceScale', $data) && \is_int($data['guidanceScale'])) {
                 $data['guidanceScale'] = (float) $data['guidanceScale'];
             }
@@ -70,7 +70,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('generated_images', $data)) {
                 $values = [];
                 foreach ($data['generated_images'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class, 'json', $context);
                 }
                 $object->setGeneratedImages($values);
                 unset($data['generated_images']);
@@ -78,7 +78,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('generation_elements', $data)) {
                 $values_1 = [];
                 foreach ($data['generation_elements'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class, 'json', $context);
+                    $values_1[] = $this->denormalizer->denormalize($value_1, \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class, 'json', $context);
                 }
                 $object->setGenerationElements($values_1);
                 unset($data['generation_elements']);
@@ -289,7 +289,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false];
+            return [\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false];
         }
     }
 } else {
@@ -302,12 +302,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
+            return $type === \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class;
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -318,7 +318,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk();
+            $object = new \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk();
             if (\array_key_exists('guidanceScale', $data) && \is_int($data['guidanceScale'])) {
                 $data['guidanceScale'] = (float) $data['guidanceScale'];
             }
@@ -341,7 +341,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('generated_images', $data)) {
                 $values = [];
                 foreach ($data['generated_images'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class, 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class, 'json', $context);
                 }
                 $object->setGeneratedImages($values);
                 unset($data['generated_images']);
@@ -349,7 +349,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('generation_elements', $data)) {
                 $values_1 = [];
                 foreach ($data['generation_elements'] as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class, 'json', $context);
+                    $values_1[] = $this->denormalizer->denormalize($value_1, \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class, 'json', $context);
                 }
                 $object->setGenerationElements($values_1);
                 unset($data['generation_elements']);
@@ -563,7 +563,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false];
+            return [\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false];
         }
     }
 }

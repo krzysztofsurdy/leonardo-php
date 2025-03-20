@@ -8,9 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Normalizer;
+namespace LeonardoAI\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
+use LeonardoAI\Runtime\Normalizer\CheckArray;
+use LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -18,8 +20,6 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Ydrus\LeonardoAI\Runtime\Normalizer\CheckArray;
-use Ydrus\LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
     class PlatformModelsGetResponse200CustomModelsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
+            return $type === \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem();
+            $object = new \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -60,7 +60,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['featured']);
             }
             if (\array_key_exists('generated_image', $data) && $data['generated_image'] !== null) {
-                $object->setGeneratedImage($this->denormalizer->denormalize($data['generated_image'], \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class, 'json', $context));
+                $object->setGeneratedImage($this->denormalizer->denormalize($data['generated_image'], \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class, 'json', $context));
                 unset($data['generated_image']);
             } elseif (\array_key_exists('generated_image', $data) && $data['generated_image'] === null) {
                 $object->setGeneratedImage(null);
@@ -120,7 +120,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false];
+            return [\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false];
         }
     }
 } else {
@@ -133,12 +133,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
+            return $type === \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class;
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -149,7 +149,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem();
+            $object = new \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -162,7 +162,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['featured']);
             }
             if (\array_key_exists('generated_image', $data) && $data['generated_image'] !== null) {
-                $object->setGeneratedImage($this->denormalizer->denormalize($data['generated_image'], \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class, 'json', $context));
+                $object->setGeneratedImage($this->denormalizer->denormalize($data['generated_image'], \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class, 'json', $context));
                 unset($data['generated_image']);
             } elseif (\array_key_exists('generated_image', $data) && $data['generated_image'] === null) {
                 $object->setGeneratedImage(null);
@@ -225,7 +225,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false];
+            return [\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false];
         }
     }
 }

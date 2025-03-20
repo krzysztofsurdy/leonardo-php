@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class PromptImprove extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class PromptImprove extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
 
     /**
      * This endpoint returns a improved prompt.
      */
-    public function __construct(\Ydrus\LeonardoAI\Model\PromptImprovePostBody $requestBody)
+    public function __construct(\LeonardoAI\Model\PromptImprovePostBody $requestBody)
     {
         $this->body = $requestBody;
     }
@@ -34,7 +34,7 @@ class PromptImprove extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implem
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Ydrus\LeonardoAI\Model\PromptImprovePostBody) {
+        if ($this->body instanceof \LeonardoAI\Model\PromptImprovePostBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -47,14 +47,14 @@ class PromptImprove extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implem
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200|null
+     * @return \LeonardoAI\Model\PromptImprovePostResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\PromptImprovePostResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\PromptImprovePostResponse200', 'json');
         }
     }
 

@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class GetModelById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class GetModelById extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
     protected $id;
 
     /**
@@ -46,14 +46,14 @@ class GetModelById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint impleme
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200|null
+     * @return \LeonardoAI\Model\ModelsIdGetResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\ModelsIdGetResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\ModelsIdGetResponse200', 'json');
         }
     }
 

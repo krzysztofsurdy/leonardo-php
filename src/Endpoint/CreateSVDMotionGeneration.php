@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class CreateSVDMotionGeneration extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class CreateSVDMotionGeneration extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
 
     /**
      * This endpoint will generate a SVD motion generation.
      */
-    public function __construct(?\Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostBody $requestBody = null)
+    public function __construct(?\LeonardoAI\Model\GenerationsMotionSvdPostBody $requestBody = null)
     {
         $this->body = $requestBody;
     }
@@ -34,7 +34,7 @@ class CreateSVDMotionGeneration extends \Ydrus\LeonardoAI\Runtime\Client\BaseEnd
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostBody) {
+        if ($this->body instanceof \LeonardoAI\Model\GenerationsMotionSvdPostBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -47,14 +47,14 @@ class CreateSVDMotionGeneration extends \Ydrus\LeonardoAI\Runtime\Client\BaseEnd
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200|null
+     * @return \LeonardoAI\Model\GenerationsMotionSvdPostResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\GenerationsMotionSvdPostResponse200', 'json');
         }
     }
 

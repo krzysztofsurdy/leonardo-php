@@ -8,8 +8,10 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Normalizer;
+namespace LeonardoAI\Normalizer;
 
+use LeonardoAI\Runtime\Normalizer\CheckArray;
+use LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -17,8 +19,6 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Ydrus\LeonardoAI\Runtime\Normalizer\CheckArray;
-use Ydrus\LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
     class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
@@ -28,269 +28,269 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use CheckArray;
         use ValidatorTrait;
         protected $normalizers = [
-            \Ydrus\LeonardoAI\Model\Lora::class => LoraNormalizer::class,
+            \LeonardoAI\Model\Lora::class => LoraNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ControlnetInput::class => ControlnetInputNormalizer::class,
+            \LeonardoAI\Model\ControlnetInput::class => ControlnetInputNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ElementInput::class => ElementInputNormalizer::class,
+            \LeonardoAI\Model\ElementInput::class => ElementInputNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\UserElementInput::class => UserElementInputNormalizer::class,
+            \LeonardoAI\Model\UserElementInput::class => UserElementInputNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\MeGetResponse200::class => MeGetResponse200Normalizer::class,
+            \LeonardoAI\Model\MeGetResponse200::class => MeGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => MeGetResponse200UserDetailsItemNormalizer::class,
+            \LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => MeGetResponse200UserDetailsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => MeGetResponse200UserDetailsItemUserNormalizer::class,
+            \LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => MeGetResponse200UserDetailsItemUserNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsPostBody::class => GenerationsPostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsPostBody::class => GenerationsPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsPostResponse200::class => GenerationsPostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsPostResponse200::class => GenerationsPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => GenerationsPostResponse200SdGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => GenerationsPostResponse200SdGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200::class => GenerationsIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsIdDeleteResponse200::class => GenerationsIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => GenerationsIdDeleteResponse200DeleteGenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => GenerationsIdDeleteResponse200DeleteGenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200::class => GenerationsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200::class => GenerationsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => GenerationsIdGetResponse200GenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => GenerationsIdGetResponse200GenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLoraNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLoraNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => GenerationsUserUserIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => GenerationsUserUserIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLoraNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLoraNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTexturePostBody::class => GenerationsTexturePostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTexturePostBody::class => GenerationsTexturePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200::class => GenerationsTexturePostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTexturePostResponse200::class => GenerationsTexturePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => GenerationsTexturePostResponse200TextureGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => GenerationsTexturePostResponse200TextureGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostBody::class => GenerationsMotionSvdPostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsMotionSvdPostBody::class => GenerationsMotionSvdPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => GenerationsMotionSvdPostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => GenerationsMotionSvdPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => GenerationsMotionSvdPostResponse200SdGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => GenerationsMotionSvdPostResponse200SdGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsLcmPostBody::class => GenerationsLcmPostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsLcmPostBody::class => GenerationsLcmPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200::class => GenerationsLcmPostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsLcmPostResponse200::class => GenerationsLcmPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => GenerationsLcmPostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => GenerationsLcmPostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInstantRefinePostBody::class => LcmInstantRefinePostBodyNormalizer::class,
+            \LeonardoAI\Model\LcmInstantRefinePostBody::class => LcmInstantRefinePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200::class => LcmInstantRefinePostResponse200Normalizer::class,
+            \LeonardoAI\Model\LcmInstantRefinePostResponse200::class => LcmInstantRefinePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => LcmInstantRefinePostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => LcmInstantRefinePostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInpaintingPostBody::class => LcmInpaintingPostBodyNormalizer::class,
+            \LeonardoAI\Model\LcmInpaintingPostBody::class => LcmInpaintingPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200::class => LcmInpaintingPostResponse200Normalizer::class,
+            \LeonardoAI\Model\LcmInpaintingPostResponse200::class => LcmInpaintingPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => LcmInpaintingPostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => LcmInpaintingPostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmUpscalePostBody::class => LcmUpscalePostBodyNormalizer::class,
+            \LeonardoAI\Model\LcmUpscalePostBody::class => LcmUpscalePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200::class => LcmUpscalePostResponse200Normalizer::class,
+            \LeonardoAI\Model\LcmUpscalePostResponse200::class => LcmUpscalePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => LcmUpscalePostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => LcmUpscalePostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => GenerationsTextureModelModelIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => GenerationsTextureModelModelIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => GenerationsTextureModelModelIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => GenerationsTextureModelModelIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => GenerationsTextureIdDeleteBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => GenerationsTextureIdDeleteBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => GenerationsTextureIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => GenerationsTextureIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetBody::class => GenerationsTextureIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetBody::class => GenerationsTextureIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => GenerationsTextureIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => GenerationsTextureIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUploadPostBody::class => Models3dUploadPostBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dUploadPostBody::class => Models3dUploadPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200::class => Models3dUploadPostResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dUploadPostResponse200::class => Models3dUploadPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => Models3dUploadPostResponse200UploadModelAssetNormalizer::class,
+            \LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => Models3dUploadPostResponse200UploadModelAssetNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetBody::class => Models3dUserUserIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dUserUserIdGetBody::class => Models3dUserUserIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => Models3dUserUserIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => Models3dUserUserIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => Models3dUserUserIdGetResponse200ModelAssetsItemNormalizer::class,
+            \LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => Models3dUserUserIdGetResponse200ModelAssetsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdDeleteBody::class => Models3dIdDeleteBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dIdDeleteBody::class => Models3dIdDeleteBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200::class => Models3dIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dIdDeleteResponse200::class => Models3dIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => Models3dIdDeleteResponse200DeleteModelAssetsByPkNormalizer::class,
+            \LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => Models3dIdDeleteResponse200DeleteModelAssetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdGetBody::class => Models3dIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dIdGetBody::class => Models3dIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200::class => Models3dIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dIdGetResponse200::class => Models3dIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => Models3dIdGetResponse200ModelAssetsByPkNormalizer::class,
+            \LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => Models3dIdGetResponse200ModelAssetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImagePostBody::class => InitImagePostBodyNormalizer::class,
+            \LeonardoAI\Model\InitImagePostBody::class => InitImagePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImagePostResponse200::class => InitImagePostResponse200Normalizer::class,
+            \LeonardoAI\Model\InitImagePostResponse200::class => InitImagePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => InitImagePostResponse200UploadInitImageNormalizer::class,
+            \LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => InitImagePostResponse200UploadInitImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200::class => InitImageIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\InitImageIdDeleteResponse200::class => InitImageIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => InitImageIdDeleteResponse200DeleteInitImagesByPkNormalizer::class,
+            \LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => InitImageIdDeleteResponse200DeleteInitImagesByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200::class => InitImageIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\InitImageIdGetResponse200::class => InitImageIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => InitImageIdGetResponse200InitImagesByPkNormalizer::class,
+            \LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => InitImageIdGetResponse200InitImagesByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\CanvasInitImagePostBody::class => CanvasInitImagePostBodyNormalizer::class,
+            \LeonardoAI\Model\CanvasInitImagePostBody::class => CanvasInitImagePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200::class => CanvasInitImagePostResponse200Normalizer::class,
+            \LeonardoAI\Model\CanvasInitImagePostResponse200::class => CanvasInitImagePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => CanvasInitImagePostResponse200UploadCanvasInitImageNormalizer::class,
+            \LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => CanvasInitImagePostResponse200UploadCanvasInitImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUnzoomPostBody::class => VariationsUnzoomPostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsUnzoomPostBody::class => VariationsUnzoomPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200::class => VariationsUnzoomPostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsUnzoomPostResponse200::class => VariationsUnzoomPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => VariationsUnzoomPostResponse200SdUnzoomJobNormalizer::class,
+            \LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => VariationsUnzoomPostResponse200SdUnzoomJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUpscalePostBody::class => VariationsUpscalePostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsUpscalePostBody::class => VariationsUpscalePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200::class => VariationsUpscalePostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsUpscalePostResponse200::class => VariationsUpscalePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => VariationsUpscalePostResponse200SdUpscaleJobNormalizer::class,
+            \LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => VariationsUpscalePostResponse200SdUpscaleJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsNobgPostBody::class => VariationsNobgPostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsNobgPostBody::class => VariationsNobgPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200::class => VariationsNobgPostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsNobgPostResponse200::class => VariationsNobgPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => VariationsNobgPostResponse200SdNobgJobNormalizer::class,
+            \LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => VariationsNobgPostResponse200SdNobgJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => VariationsUniversalUpscalerPostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => VariationsUniversalUpscalerPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => VariationsUniversalUpscalerPostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => VariationsUniversalUpscalerPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => VariationsUniversalUpscalerPostResponse200UniversalUpscalerNormalizer::class,
+            \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => VariationsUniversalUpscalerPostResponse200UniversalUpscalerNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class => VariationsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsIdGetResponse200::class => VariationsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => VariationsIdGetResponse200GeneratedImageVariationGenericItemNormalizer::class,
+            \LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => VariationsIdGetResponse200GeneratedImageVariationGenericItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsPostBody::class => DatasetsPostBodyNormalizer::class,
+            \LeonardoAI\Model\DatasetsPostBody::class => DatasetsPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsPostResponse200::class => DatasetsPostResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsPostResponse200::class => DatasetsPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => DatasetsPostResponse200InsertDatasetsOneNormalizer::class,
+            \LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => DatasetsPostResponse200InsertDatasetsOneNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200::class => DatasetsIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsIdDeleteResponse200::class => DatasetsIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => DatasetsIdDeleteResponse200DeleteDatasetsByPkNormalizer::class,
+            \LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => DatasetsIdDeleteResponse200DeleteDatasetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200::class => DatasetsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsIdGetResponse200::class => DatasetsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => DatasetsIdGetResponse200DatasetsByPkNormalizer::class,
+            \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => DatasetsIdGetResponse200DatasetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => DatasetsIdGetResponse200DatasetsByPkDatasetImagesItemNormalizer::class,
+            \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => DatasetsIdGetResponse200DatasetsByPkDatasetImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => DatasetsDatasetIdUploadPostBodyNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => DatasetsDatasetIdUploadPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => DatasetsDatasetIdUploadPostResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => DatasetsDatasetIdUploadPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => DatasetsDatasetIdUploadPostResponse200UploadDatasetImageNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => DatasetsDatasetIdUploadPostResponse200UploadDatasetImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => DatasetsDatasetIdUploadGenPostBodyNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => DatasetsDatasetIdUploadGenPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => DatasetsDatasetIdUploadGenPostResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => DatasetsDatasetIdUploadGenPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGenNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGenNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsPostBody::class => ModelsPostBodyNormalizer::class,
+            \LeonardoAI\Model\ModelsPostBody::class => ModelsPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsPostResponse200::class => ModelsPostResponse200Normalizer::class,
+            \LeonardoAI\Model\ModelsPostResponse200::class => ModelsPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => ModelsPostResponse200SdTrainingJobNormalizer::class,
+            \LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => ModelsPostResponse200SdTrainingJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200::class => ModelsIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\ModelsIdDeleteResponse200::class => ModelsIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => ModelsIdDeleteResponse200DeleteCustomModelsByPkNormalizer::class,
+            \LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => ModelsIdDeleteResponse200DeleteCustomModelsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200::class => ModelsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\ModelsIdGetResponse200::class => ModelsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => ModelsIdGetResponse200CustomModelsByPkNormalizer::class,
+            \LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => ModelsIdGetResponse200CustomModelsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200::class => PlatformModelsGetResponse200Normalizer::class,
+            \LeonardoAI\Model\PlatformModelsGetResponse200::class => PlatformModelsGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => PlatformModelsGetResponse200CustomModelsItemNormalizer::class,
+            \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => PlatformModelsGetResponse200CustomModelsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => PlatformModelsGetResponse200CustomModelsItemGeneratedImageNormalizer::class,
+            \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => PlatformModelsGetResponse200CustomModelsItemGeneratedImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ElementsGetResponse200::class => ElementsGetResponse200Normalizer::class,
+            \LeonardoAI\Model\ElementsGetResponse200::class => ElementsGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ElementsGetResponse200LorasItem::class => ElementsGetResponse200LorasItemNormalizer::class,
+            \LeonardoAI\Model\ElementsGetResponse200LorasItem::class => ElementsGetResponse200LorasItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200::class => PromptRandomPostResponse200Normalizer::class,
+            \LeonardoAI\Model\PromptRandomPostResponse200::class => PromptRandomPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => PromptRandomPostResponse200PromptGenerationNormalizer::class,
+            \LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => PromptRandomPostResponse200PromptGenerationNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptImprovePostBody::class => PromptImprovePostBodyNormalizer::class,
+            \LeonardoAI\Model\PromptImprovePostBody::class => PromptImprovePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200::class => PromptImprovePostResponse200Normalizer::class,
+            \LeonardoAI\Model\PromptImprovePostResponse200::class => PromptImprovePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => PromptImprovePostResponse200PromptGenerationNormalizer::class,
+            \LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => PromptImprovePostResponse200PromptGenerationNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBody::class => PricingCalculatorPostBodyNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBody::class => PricingCalculatorPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => PricingCalculatorPostBodyServiceParamsNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => PricingCalculatorPostBodyServiceParamsNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => PricingCalculatorPostBodyServiceParamsIMAGEGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => PricingCalculatorPostBodyServiceParamsIMAGEGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => PricingCalculatorPostBodyServiceParamsMOTIONGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => PricingCalculatorPostBodyServiceParamsMOTIONGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => PricingCalculatorPostBodyServiceParamsLCMGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => PricingCalculatorPostBodyServiceParamsLCMGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => PricingCalculatorPostBodyServiceParamsMODELTRAININGNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => PricingCalculatorPostBodyServiceParamsMODELTRAININGNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => PricingCalculatorPostBodyServiceParamsTEXTUREGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => PricingCalculatorPostBodyServiceParamsTEXTUREGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALERNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALERNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200::class => PricingCalculatorPostResponse200Normalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostResponse200::class => PricingCalculatorPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => PricingCalculatorPostResponse200CalculateProductionApiServiceCostNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => PricingCalculatorPostResponse200CalculateProductionApiServiceCostNormalizer::class,
 
-            \Jane\Component\JsonSchemaRuntime\Reference::class => \Ydrus\LeonardoAI\Runtime\Normalizer\ReferenceNormalizer::class,
+            \Jane\Component\JsonSchemaRuntime\Reference::class => \LeonardoAI\Runtime\Normalizer\ReferenceNormalizer::class,
         ];
         protected $normalizersCache = [];
 
@@ -338,137 +338,137 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         public function getSupportedTypes(?string $format = null): array
         {
             return [
-                \Ydrus\LeonardoAI\Model\Lora::class => false,
-                \Ydrus\LeonardoAI\Model\ControlnetInput::class => false,
-                \Ydrus\LeonardoAI\Model\ElementInput::class => false,
-                \Ydrus\LeonardoAI\Model\UserElementInput::class => false,
-                \Ydrus\LeonardoAI\Model\MeGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => false,
-                \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTexturePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsLcmPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInstantRefinePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInpaintingPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\LcmUpscalePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUploadPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdDeleteBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\InitImagePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\InitImagePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => false,
-                \Ydrus\LeonardoAI\Model\CanvasInitImagePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUnzoomPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUpscalePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsNobgPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false,
-                \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => false,
-                \Ydrus\LeonardoAI\Model\ElementsGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ElementsGetResponse200LorasItem::class => false,
-                \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => false,
-                \Ydrus\LeonardoAI\Model\PromptImprovePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false,
+                \LeonardoAI\Model\Lora::class => false,
+                \LeonardoAI\Model\ControlnetInput::class => false,
+                \LeonardoAI\Model\ElementInput::class => false,
+                \LeonardoAI\Model\UserElementInput::class => false,
+                \LeonardoAI\Model\MeGetResponse200::class => false,
+                \LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => false,
+                \LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => false,
+                \LeonardoAI\Model\GenerationsPostBody::class => false,
+                \LeonardoAI\Model\GenerationsPostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => false,
+                \LeonardoAI\Model\GenerationsTexturePostBody::class => false,
+                \LeonardoAI\Model\GenerationsTexturePostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsMotionSvdPostBody::class => false,
+                \LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsLcmPostBody::class => false,
+                \LeonardoAI\Model\GenerationsLcmPostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\LcmInstantRefinePostBody::class => false,
+                \LeonardoAI\Model\LcmInstantRefinePostResponse200::class => false,
+                \LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\LcmInpaintingPostBody::class => false,
+                \LeonardoAI\Model\LcmInpaintingPostResponse200::class => false,
+                \LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\LcmUpscalePostBody::class => false,
+                \LeonardoAI\Model\LcmUpscalePostResponse200::class => false,
+                \LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetBody::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => false,
+                \LeonardoAI\Model\Models3dUploadPostBody::class => false,
+                \LeonardoAI\Model\Models3dUploadPostResponse200::class => false,
+                \LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => false,
+                \LeonardoAI\Model\Models3dUserUserIdGetBody::class => false,
+                \LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => false,
+                \LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => false,
+                \LeonardoAI\Model\Models3dIdDeleteBody::class => false,
+                \LeonardoAI\Model\Models3dIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => false,
+                \LeonardoAI\Model\Models3dIdGetBody::class => false,
+                \LeonardoAI\Model\Models3dIdGetResponse200::class => false,
+                \LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => false,
+                \LeonardoAI\Model\InitImagePostBody::class => false,
+                \LeonardoAI\Model\InitImagePostResponse200::class => false,
+                \LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => false,
+                \LeonardoAI\Model\InitImageIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => false,
+                \LeonardoAI\Model\InitImageIdGetResponse200::class => false,
+                \LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => false,
+                \LeonardoAI\Model\CanvasInitImagePostBody::class => false,
+                \LeonardoAI\Model\CanvasInitImagePostResponse200::class => false,
+                \LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => false,
+                \LeonardoAI\Model\VariationsUnzoomPostBody::class => false,
+                \LeonardoAI\Model\VariationsUnzoomPostResponse200::class => false,
+                \LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => false,
+                \LeonardoAI\Model\VariationsUpscalePostBody::class => false,
+                \LeonardoAI\Model\VariationsUpscalePostResponse200::class => false,
+                \LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => false,
+                \LeonardoAI\Model\VariationsNobgPostBody::class => false,
+                \LeonardoAI\Model\VariationsNobgPostResponse200::class => false,
+                \LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => false,
+                \LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => false,
+                \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => false,
+                \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => false,
+                \LeonardoAI\Model\VariationsIdGetResponse200::class => false,
+                \LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => false,
+                \LeonardoAI\Model\DatasetsPostBody::class => false,
+                \LeonardoAI\Model\DatasetsPostResponse200::class => false,
+                \LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => false,
+                \LeonardoAI\Model\DatasetsIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => false,
+                \LeonardoAI\Model\DatasetsIdGetResponse200::class => false,
+                \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => false,
+                \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => false,
+                \LeonardoAI\Model\ModelsPostBody::class => false,
+                \LeonardoAI\Model\ModelsPostResponse200::class => false,
+                \LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => false,
+                \LeonardoAI\Model\ModelsIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => false,
+                \LeonardoAI\Model\ModelsIdGetResponse200::class => false,
+                \LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => false,
+                \LeonardoAI\Model\PlatformModelsGetResponse200::class => false,
+                \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false,
+                \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => false,
+                \LeonardoAI\Model\ElementsGetResponse200::class => false,
+                \LeonardoAI\Model\ElementsGetResponse200LorasItem::class => false,
+                \LeonardoAI\Model\PromptRandomPostResponse200::class => false,
+                \LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => false,
+                \LeonardoAI\Model\PromptImprovePostBody::class => false,
+                \LeonardoAI\Model\PromptImprovePostResponse200::class => false,
+                \LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBody::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostResponse200::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false,
                 \Jane\Component\JsonSchemaRuntime\Reference::class => false,
             ];
         }
@@ -481,269 +481,269 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use CheckArray;
         use ValidatorTrait;
         protected $normalizers = [
-            \Ydrus\LeonardoAI\Model\Lora::class => LoraNormalizer::class,
+            \LeonardoAI\Model\Lora::class => LoraNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ControlnetInput::class => ControlnetInputNormalizer::class,
+            \LeonardoAI\Model\ControlnetInput::class => ControlnetInputNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ElementInput::class => ElementInputNormalizer::class,
+            \LeonardoAI\Model\ElementInput::class => ElementInputNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\UserElementInput::class => UserElementInputNormalizer::class,
+            \LeonardoAI\Model\UserElementInput::class => UserElementInputNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\MeGetResponse200::class => MeGetResponse200Normalizer::class,
+            \LeonardoAI\Model\MeGetResponse200::class => MeGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => MeGetResponse200UserDetailsItemNormalizer::class,
+            \LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => MeGetResponse200UserDetailsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => MeGetResponse200UserDetailsItemUserNormalizer::class,
+            \LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => MeGetResponse200UserDetailsItemUserNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsPostBody::class => GenerationsPostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsPostBody::class => GenerationsPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsPostResponse200::class => GenerationsPostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsPostResponse200::class => GenerationsPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => GenerationsPostResponse200SdGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => GenerationsPostResponse200SdGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200::class => GenerationsIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsIdDeleteResponse200::class => GenerationsIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => GenerationsIdDeleteResponse200DeleteGenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => GenerationsIdDeleteResponse200DeleteGenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200::class => GenerationsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200::class => GenerationsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => GenerationsIdGetResponse200GenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => GenerationsIdGetResponse200GenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLoraNormalizer::class,
+            \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLoraNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => GenerationsUserUserIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => GenerationsUserUserIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLoraNormalizer::class,
+            \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLoraNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTexturePostBody::class => GenerationsTexturePostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTexturePostBody::class => GenerationsTexturePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200::class => GenerationsTexturePostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTexturePostResponse200::class => GenerationsTexturePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => GenerationsTexturePostResponse200TextureGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => GenerationsTexturePostResponse200TextureGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostBody::class => GenerationsMotionSvdPostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsMotionSvdPostBody::class => GenerationsMotionSvdPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => GenerationsMotionSvdPostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => GenerationsMotionSvdPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => GenerationsMotionSvdPostResponse200SdGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => GenerationsMotionSvdPostResponse200SdGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsLcmPostBody::class => GenerationsLcmPostBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsLcmPostBody::class => GenerationsLcmPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200::class => GenerationsLcmPostResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsLcmPostResponse200::class => GenerationsLcmPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => GenerationsLcmPostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => GenerationsLcmPostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInstantRefinePostBody::class => LcmInstantRefinePostBodyNormalizer::class,
+            \LeonardoAI\Model\LcmInstantRefinePostBody::class => LcmInstantRefinePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200::class => LcmInstantRefinePostResponse200Normalizer::class,
+            \LeonardoAI\Model\LcmInstantRefinePostResponse200::class => LcmInstantRefinePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => LcmInstantRefinePostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => LcmInstantRefinePostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInpaintingPostBody::class => LcmInpaintingPostBodyNormalizer::class,
+            \LeonardoAI\Model\LcmInpaintingPostBody::class => LcmInpaintingPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200::class => LcmInpaintingPostResponse200Normalizer::class,
+            \LeonardoAI\Model\LcmInpaintingPostResponse200::class => LcmInpaintingPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => LcmInpaintingPostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => LcmInpaintingPostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmUpscalePostBody::class => LcmUpscalePostBodyNormalizer::class,
+            \LeonardoAI\Model\LcmUpscalePostBody::class => LcmUpscalePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200::class => LcmUpscalePostResponse200Normalizer::class,
+            \LeonardoAI\Model\LcmUpscalePostResponse200::class => LcmUpscalePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => LcmUpscalePostResponse200LcmGenerationJobNormalizer::class,
+            \LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => LcmUpscalePostResponse200LcmGenerationJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => GenerationsTextureModelModelIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => GenerationsTextureModelModelIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => GenerationsTextureModelModelIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => GenerationsTextureModelModelIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => GenerationsTextureIdDeleteBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => GenerationsTextureIdDeleteBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => GenerationsTextureIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => GenerationsTextureIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetBody::class => GenerationsTextureIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetBody::class => GenerationsTextureIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => GenerationsTextureIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => GenerationsTextureIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItemNormalizer::class,
+            \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUploadPostBody::class => Models3dUploadPostBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dUploadPostBody::class => Models3dUploadPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200::class => Models3dUploadPostResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dUploadPostResponse200::class => Models3dUploadPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => Models3dUploadPostResponse200UploadModelAssetNormalizer::class,
+            \LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => Models3dUploadPostResponse200UploadModelAssetNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetBody::class => Models3dUserUserIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dUserUserIdGetBody::class => Models3dUserUserIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => Models3dUserUserIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => Models3dUserUserIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => Models3dUserUserIdGetResponse200ModelAssetsItemNormalizer::class,
+            \LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => Models3dUserUserIdGetResponse200ModelAssetsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdDeleteBody::class => Models3dIdDeleteBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dIdDeleteBody::class => Models3dIdDeleteBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200::class => Models3dIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dIdDeleteResponse200::class => Models3dIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => Models3dIdDeleteResponse200DeleteModelAssetsByPkNormalizer::class,
+            \LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => Models3dIdDeleteResponse200DeleteModelAssetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdGetBody::class => Models3dIdGetBodyNormalizer::class,
+            \LeonardoAI\Model\Models3dIdGetBody::class => Models3dIdGetBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200::class => Models3dIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\Models3dIdGetResponse200::class => Models3dIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => Models3dIdGetResponse200ModelAssetsByPkNormalizer::class,
+            \LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => Models3dIdGetResponse200ModelAssetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImagePostBody::class => InitImagePostBodyNormalizer::class,
+            \LeonardoAI\Model\InitImagePostBody::class => InitImagePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImagePostResponse200::class => InitImagePostResponse200Normalizer::class,
+            \LeonardoAI\Model\InitImagePostResponse200::class => InitImagePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => InitImagePostResponse200UploadInitImageNormalizer::class,
+            \LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => InitImagePostResponse200UploadInitImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200::class => InitImageIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\InitImageIdDeleteResponse200::class => InitImageIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => InitImageIdDeleteResponse200DeleteInitImagesByPkNormalizer::class,
+            \LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => InitImageIdDeleteResponse200DeleteInitImagesByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200::class => InitImageIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\InitImageIdGetResponse200::class => InitImageIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => InitImageIdGetResponse200InitImagesByPkNormalizer::class,
+            \LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => InitImageIdGetResponse200InitImagesByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\CanvasInitImagePostBody::class => CanvasInitImagePostBodyNormalizer::class,
+            \LeonardoAI\Model\CanvasInitImagePostBody::class => CanvasInitImagePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200::class => CanvasInitImagePostResponse200Normalizer::class,
+            \LeonardoAI\Model\CanvasInitImagePostResponse200::class => CanvasInitImagePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => CanvasInitImagePostResponse200UploadCanvasInitImageNormalizer::class,
+            \LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => CanvasInitImagePostResponse200UploadCanvasInitImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUnzoomPostBody::class => VariationsUnzoomPostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsUnzoomPostBody::class => VariationsUnzoomPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200::class => VariationsUnzoomPostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsUnzoomPostResponse200::class => VariationsUnzoomPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => VariationsUnzoomPostResponse200SdUnzoomJobNormalizer::class,
+            \LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => VariationsUnzoomPostResponse200SdUnzoomJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUpscalePostBody::class => VariationsUpscalePostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsUpscalePostBody::class => VariationsUpscalePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200::class => VariationsUpscalePostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsUpscalePostResponse200::class => VariationsUpscalePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => VariationsUpscalePostResponse200SdUpscaleJobNormalizer::class,
+            \LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => VariationsUpscalePostResponse200SdUpscaleJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsNobgPostBody::class => VariationsNobgPostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsNobgPostBody::class => VariationsNobgPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200::class => VariationsNobgPostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsNobgPostResponse200::class => VariationsNobgPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => VariationsNobgPostResponse200SdNobgJobNormalizer::class,
+            \LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => VariationsNobgPostResponse200SdNobgJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => VariationsUniversalUpscalerPostBodyNormalizer::class,
+            \LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => VariationsUniversalUpscalerPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => VariationsUniversalUpscalerPostResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => VariationsUniversalUpscalerPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => VariationsUniversalUpscalerPostResponse200UniversalUpscalerNormalizer::class,
+            \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => VariationsUniversalUpscalerPostResponse200UniversalUpscalerNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class => VariationsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\VariationsIdGetResponse200::class => VariationsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => VariationsIdGetResponse200GeneratedImageVariationGenericItemNormalizer::class,
+            \LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => VariationsIdGetResponse200GeneratedImageVariationGenericItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsPostBody::class => DatasetsPostBodyNormalizer::class,
+            \LeonardoAI\Model\DatasetsPostBody::class => DatasetsPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsPostResponse200::class => DatasetsPostResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsPostResponse200::class => DatasetsPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => DatasetsPostResponse200InsertDatasetsOneNormalizer::class,
+            \LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => DatasetsPostResponse200InsertDatasetsOneNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200::class => DatasetsIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsIdDeleteResponse200::class => DatasetsIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => DatasetsIdDeleteResponse200DeleteDatasetsByPkNormalizer::class,
+            \LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => DatasetsIdDeleteResponse200DeleteDatasetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200::class => DatasetsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsIdGetResponse200::class => DatasetsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => DatasetsIdGetResponse200DatasetsByPkNormalizer::class,
+            \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => DatasetsIdGetResponse200DatasetsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => DatasetsIdGetResponse200DatasetsByPkDatasetImagesItemNormalizer::class,
+            \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => DatasetsIdGetResponse200DatasetsByPkDatasetImagesItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => DatasetsDatasetIdUploadPostBodyNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => DatasetsDatasetIdUploadPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => DatasetsDatasetIdUploadPostResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => DatasetsDatasetIdUploadPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => DatasetsDatasetIdUploadPostResponse200UploadDatasetImageNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => DatasetsDatasetIdUploadPostResponse200UploadDatasetImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => DatasetsDatasetIdUploadGenPostBodyNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => DatasetsDatasetIdUploadGenPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => DatasetsDatasetIdUploadGenPostResponse200Normalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => DatasetsDatasetIdUploadGenPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGenNormalizer::class,
+            \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGenNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsPostBody::class => ModelsPostBodyNormalizer::class,
+            \LeonardoAI\Model\ModelsPostBody::class => ModelsPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsPostResponse200::class => ModelsPostResponse200Normalizer::class,
+            \LeonardoAI\Model\ModelsPostResponse200::class => ModelsPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => ModelsPostResponse200SdTrainingJobNormalizer::class,
+            \LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => ModelsPostResponse200SdTrainingJobNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200::class => ModelsIdDeleteResponse200Normalizer::class,
+            \LeonardoAI\Model\ModelsIdDeleteResponse200::class => ModelsIdDeleteResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => ModelsIdDeleteResponse200DeleteCustomModelsByPkNormalizer::class,
+            \LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => ModelsIdDeleteResponse200DeleteCustomModelsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200::class => ModelsIdGetResponse200Normalizer::class,
+            \LeonardoAI\Model\ModelsIdGetResponse200::class => ModelsIdGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => ModelsIdGetResponse200CustomModelsByPkNormalizer::class,
+            \LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => ModelsIdGetResponse200CustomModelsByPkNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200::class => PlatformModelsGetResponse200Normalizer::class,
+            \LeonardoAI\Model\PlatformModelsGetResponse200::class => PlatformModelsGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => PlatformModelsGetResponse200CustomModelsItemNormalizer::class,
+            \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => PlatformModelsGetResponse200CustomModelsItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => PlatformModelsGetResponse200CustomModelsItemGeneratedImageNormalizer::class,
+            \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => PlatformModelsGetResponse200CustomModelsItemGeneratedImageNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ElementsGetResponse200::class => ElementsGetResponse200Normalizer::class,
+            \LeonardoAI\Model\ElementsGetResponse200::class => ElementsGetResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\ElementsGetResponse200LorasItem::class => ElementsGetResponse200LorasItemNormalizer::class,
+            \LeonardoAI\Model\ElementsGetResponse200LorasItem::class => ElementsGetResponse200LorasItemNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200::class => PromptRandomPostResponse200Normalizer::class,
+            \LeonardoAI\Model\PromptRandomPostResponse200::class => PromptRandomPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => PromptRandomPostResponse200PromptGenerationNormalizer::class,
+            \LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => PromptRandomPostResponse200PromptGenerationNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptImprovePostBody::class => PromptImprovePostBodyNormalizer::class,
+            \LeonardoAI\Model\PromptImprovePostBody::class => PromptImprovePostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200::class => PromptImprovePostResponse200Normalizer::class,
+            \LeonardoAI\Model\PromptImprovePostResponse200::class => PromptImprovePostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => PromptImprovePostResponse200PromptGenerationNormalizer::class,
+            \LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => PromptImprovePostResponse200PromptGenerationNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBody::class => PricingCalculatorPostBodyNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBody::class => PricingCalculatorPostBodyNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => PricingCalculatorPostBodyServiceParamsNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => PricingCalculatorPostBodyServiceParamsNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => PricingCalculatorPostBodyServiceParamsIMAGEGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => PricingCalculatorPostBodyServiceParamsIMAGEGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => PricingCalculatorPostBodyServiceParamsMOTIONGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => PricingCalculatorPostBodyServiceParamsMOTIONGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => PricingCalculatorPostBodyServiceParamsLCMGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => PricingCalculatorPostBodyServiceParamsLCMGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => PricingCalculatorPostBodyServiceParamsMODELTRAININGNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => PricingCalculatorPostBodyServiceParamsMODELTRAININGNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => PricingCalculatorPostBodyServiceParamsTEXTUREGENERATIONNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => PricingCalculatorPostBodyServiceParamsTEXTUREGENERATIONNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALERNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALERNormalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200::class => PricingCalculatorPostResponse200Normalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostResponse200::class => PricingCalculatorPostResponse200Normalizer::class,
 
-            \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => PricingCalculatorPostResponse200CalculateProductionApiServiceCostNormalizer::class,
+            \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => PricingCalculatorPostResponse200CalculateProductionApiServiceCostNormalizer::class,
 
-            \Jane\Component\JsonSchemaRuntime\Reference::class => \Ydrus\LeonardoAI\Runtime\Normalizer\ReferenceNormalizer::class,
+            \Jane\Component\JsonSchemaRuntime\Reference::class => \LeonardoAI\Runtime\Normalizer\ReferenceNormalizer::class,
         ];
         protected $normalizersCache = [];
 
@@ -794,137 +794,137 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         public function getSupportedTypes(?string $format = null): array
         {
             return [
-                \Ydrus\LeonardoAI\Model\Lora::class => false,
-                \Ydrus\LeonardoAI\Model\ControlnetInput::class => false,
-                \Ydrus\LeonardoAI\Model\ElementInput::class => false,
-                \Ydrus\LeonardoAI\Model\UserElementInput::class => false,
-                \Ydrus\LeonardoAI\Model\MeGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => false,
-                \Ydrus\LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTexturePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsLcmPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInstantRefinePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInpaintingPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\LcmUpscalePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUploadPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdDeleteBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdGetBody::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\InitImagePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\InitImagePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => false,
-                \Ydrus\LeonardoAI\Model\CanvasInitImagePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUnzoomPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUpscalePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsNobgPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => false,
-                \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false,
-                \Ydrus\LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => false,
-                \Ydrus\LeonardoAI\Model\ElementsGetResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\ElementsGetResponse200LorasItem::class => false,
-                \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => false,
-                \Ydrus\LeonardoAI\Model\PromptImprovePostBody::class => false,
-                \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBody::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200::class => false,
-                \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false,
+                \LeonardoAI\Model\Lora::class => false,
+                \LeonardoAI\Model\ControlnetInput::class => false,
+                \LeonardoAI\Model\ElementInput::class => false,
+                \LeonardoAI\Model\UserElementInput::class => false,
+                \LeonardoAI\Model\MeGetResponse200::class => false,
+                \LeonardoAI\Model\MeGetResponse200UserDetailsItem::class => false,
+                \LeonardoAI\Model\MeGetResponse200UserDetailsItemUser::class => false,
+                \LeonardoAI\Model\GenerationsPostBody::class => false,
+                \LeonardoAI\Model\GenerationsPostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsPostResponse200SdGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\GenerationsIdDeleteResponse200DeleteGenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItem::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItem::class => false,
+                \LeonardoAI\Model\GenerationsIdGetResponse200GenerationsByPkGenerationElementsItemLora::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGeneratedImagesItemGeneratedImageVariationGenericsItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItem::class => false,
+                \LeonardoAI\Model\GenerationsUserUserIdGetResponse200GenerationsItemGenerationElementsItemLora::class => false,
+                \LeonardoAI\Model\GenerationsTexturePostBody::class => false,
+                \LeonardoAI\Model\GenerationsTexturePostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTexturePostResponse200TextureGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsMotionSvdPostBody::class => false,
+                \LeonardoAI\Model\GenerationsMotionSvdPostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsMotionSvdPostResponse200SdGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsLcmPostBody::class => false,
+                \LeonardoAI\Model\GenerationsLcmPostResponse200::class => false,
+                \LeonardoAI\Model\GenerationsLcmPostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\LcmInstantRefinePostBody::class => false,
+                \LeonardoAI\Model\LcmInstantRefinePostResponse200::class => false,
+                \LeonardoAI\Model\LcmInstantRefinePostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\LcmInpaintingPostBody::class => false,
+                \LeonardoAI\Model\LcmInpaintingPostResponse200::class => false,
+                \LeonardoAI\Model\LcmInpaintingPostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\LcmUpscalePostBody::class => false,
+                \LeonardoAI\Model\LcmUpscalePostResponse200::class => false,
+                \LeonardoAI\Model\LcmUpscalePostResponse200LcmGenerationJob::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetBody::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItem::class => false,
+                \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200ModelAssetTextureGenerationsItemModelAssetTextureImagesItem::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdDeleteBody::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdDeleteResponse200DeleteModelAssetTextureGenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetBody::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetResponse200::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPk::class => false,
+                \LeonardoAI\Model\GenerationsTextureIdGetResponse200ModelAssetTextureGenerationsByPkModelAssetTextureImagesItem::class => false,
+                \LeonardoAI\Model\Models3dUploadPostBody::class => false,
+                \LeonardoAI\Model\Models3dUploadPostResponse200::class => false,
+                \LeonardoAI\Model\Models3dUploadPostResponse200UploadModelAsset::class => false,
+                \LeonardoAI\Model\Models3dUserUserIdGetBody::class => false,
+                \LeonardoAI\Model\Models3dUserUserIdGetResponse200::class => false,
+                \LeonardoAI\Model\Models3dUserUserIdGetResponse200ModelAssetsItem::class => false,
+                \LeonardoAI\Model\Models3dIdDeleteBody::class => false,
+                \LeonardoAI\Model\Models3dIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\Models3dIdDeleteResponse200DeleteModelAssetsByPk::class => false,
+                \LeonardoAI\Model\Models3dIdGetBody::class => false,
+                \LeonardoAI\Model\Models3dIdGetResponse200::class => false,
+                \LeonardoAI\Model\Models3dIdGetResponse200ModelAssetsByPk::class => false,
+                \LeonardoAI\Model\InitImagePostBody::class => false,
+                \LeonardoAI\Model\InitImagePostResponse200::class => false,
+                \LeonardoAI\Model\InitImagePostResponse200UploadInitImage::class => false,
+                \LeonardoAI\Model\InitImageIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\InitImageIdDeleteResponse200DeleteInitImagesByPk::class => false,
+                \LeonardoAI\Model\InitImageIdGetResponse200::class => false,
+                \LeonardoAI\Model\InitImageIdGetResponse200InitImagesByPk::class => false,
+                \LeonardoAI\Model\CanvasInitImagePostBody::class => false,
+                \LeonardoAI\Model\CanvasInitImagePostResponse200::class => false,
+                \LeonardoAI\Model\CanvasInitImagePostResponse200UploadCanvasInitImage::class => false,
+                \LeonardoAI\Model\VariationsUnzoomPostBody::class => false,
+                \LeonardoAI\Model\VariationsUnzoomPostResponse200::class => false,
+                \LeonardoAI\Model\VariationsUnzoomPostResponse200SdUnzoomJob::class => false,
+                \LeonardoAI\Model\VariationsUpscalePostBody::class => false,
+                \LeonardoAI\Model\VariationsUpscalePostResponse200::class => false,
+                \LeonardoAI\Model\VariationsUpscalePostResponse200SdUpscaleJob::class => false,
+                \LeonardoAI\Model\VariationsNobgPostBody::class => false,
+                \LeonardoAI\Model\VariationsNobgPostResponse200::class => false,
+                \LeonardoAI\Model\VariationsNobgPostResponse200SdNobgJob::class => false,
+                \LeonardoAI\Model\VariationsUniversalUpscalerPostBody::class => false,
+                \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200::class => false,
+                \LeonardoAI\Model\VariationsUniversalUpscalerPostResponse200UniversalUpscaler::class => false,
+                \LeonardoAI\Model\VariationsIdGetResponse200::class => false,
+                \LeonardoAI\Model\VariationsIdGetResponse200GeneratedImageVariationGenericItem::class => false,
+                \LeonardoAI\Model\DatasetsPostBody::class => false,
+                \LeonardoAI\Model\DatasetsPostResponse200::class => false,
+                \LeonardoAI\Model\DatasetsPostResponse200InsertDatasetsOne::class => false,
+                \LeonardoAI\Model\DatasetsIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\DatasetsIdDeleteResponse200DeleteDatasetsByPk::class => false,
+                \LeonardoAI\Model\DatasetsIdGetResponse200::class => false,
+                \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPk::class => false,
+                \LeonardoAI\Model\DatasetsIdGetResponse200DatasetsByPkDatasetImagesItem::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadPostBody::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200UploadDatasetImage::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostBody::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200::class => false,
+                \LeonardoAI\Model\DatasetsDatasetIdUploadGenPostResponse200UploadDatasetImageFromGen::class => false,
+                \LeonardoAI\Model\ModelsPostBody::class => false,
+                \LeonardoAI\Model\ModelsPostResponse200::class => false,
+                \LeonardoAI\Model\ModelsPostResponse200SdTrainingJob::class => false,
+                \LeonardoAI\Model\ModelsIdDeleteResponse200::class => false,
+                \LeonardoAI\Model\ModelsIdDeleteResponse200DeleteCustomModelsByPk::class => false,
+                \LeonardoAI\Model\ModelsIdGetResponse200::class => false,
+                \LeonardoAI\Model\ModelsIdGetResponse200CustomModelsByPk::class => false,
+                \LeonardoAI\Model\PlatformModelsGetResponse200::class => false,
+                \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItem::class => false,
+                \LeonardoAI\Model\PlatformModelsGetResponse200CustomModelsItemGeneratedImage::class => false,
+                \LeonardoAI\Model\ElementsGetResponse200::class => false,
+                \LeonardoAI\Model\ElementsGetResponse200LorasItem::class => false,
+                \LeonardoAI\Model\PromptRandomPostResponse200::class => false,
+                \LeonardoAI\Model\PromptRandomPostResponse200PromptGeneration::class => false,
+                \LeonardoAI\Model\PromptImprovePostBody::class => false,
+                \LeonardoAI\Model\PromptImprovePostResponse200::class => false,
+                \LeonardoAI\Model\PromptImprovePostResponse200PromptGeneration::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBody::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostResponse200::class => false,
+                \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false,
                 \Jane\Component\JsonSchemaRuntime\Reference::class => false,
             ];
         }

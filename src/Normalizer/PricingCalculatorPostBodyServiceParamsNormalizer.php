@@ -8,9 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Normalizer;
+namespace LeonardoAI\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
+use LeonardoAI\Runtime\Normalizer\CheckArray;
+use LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -18,8 +20,6 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Ydrus\LeonardoAI\Runtime\Normalizer\CheckArray;
-use Ydrus\LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
     class PricingCalculatorPostBodyServiceParamsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
+            return $type === \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,48 +47,48 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams();
+            $object = new \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
             if (\array_key_exists('IMAGE_GENERATION', $data) && $data['IMAGE_GENERATION'] !== null) {
-                $object->setIMAGEGENERATION($this->denormalizer->denormalize($data['IMAGE_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class, 'json', $context));
+                $object->setIMAGEGENERATION($this->denormalizer->denormalize($data['IMAGE_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class, 'json', $context));
                 unset($data['IMAGE_GENERATION']);
             } elseif (\array_key_exists('IMAGE_GENERATION', $data) && $data['IMAGE_GENERATION'] === null) {
                 $object->setIMAGEGENERATION(null);
             }
             if (\array_key_exists('FANTASY_AVATAR_GENERATION', $data) && $data['FANTASY_AVATAR_GENERATION'] !== null) {
-                $object->setFANTASYAVATARGENERATION($this->denormalizer->denormalize($data['FANTASY_AVATAR_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class, 'json', $context));
+                $object->setFANTASYAVATARGENERATION($this->denormalizer->denormalize($data['FANTASY_AVATAR_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class, 'json', $context));
                 unset($data['FANTASY_AVATAR_GENERATION']);
             } elseif (\array_key_exists('FANTASY_AVATAR_GENERATION', $data) && $data['FANTASY_AVATAR_GENERATION'] === null) {
                 $object->setFANTASYAVATARGENERATION(null);
             }
             if (\array_key_exists('MOTION_GENERATION', $data) && $data['MOTION_GENERATION'] !== null) {
-                $object->setMOTIONGENERATION($this->denormalizer->denormalize($data['MOTION_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class, 'json', $context));
+                $object->setMOTIONGENERATION($this->denormalizer->denormalize($data['MOTION_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class, 'json', $context));
                 unset($data['MOTION_GENERATION']);
             } elseif (\array_key_exists('MOTION_GENERATION', $data) && $data['MOTION_GENERATION'] === null) {
                 $object->setMOTIONGENERATION(null);
             }
             if (\array_key_exists('LCM_GENERATION', $data) && $data['LCM_GENERATION'] !== null) {
-                $object->setLCMGENERATION($this->denormalizer->denormalize($data['LCM_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class, 'json', $context));
+                $object->setLCMGENERATION($this->denormalizer->denormalize($data['LCM_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class, 'json', $context));
                 unset($data['LCM_GENERATION']);
             } elseif (\array_key_exists('LCM_GENERATION', $data) && $data['LCM_GENERATION'] === null) {
                 $object->setLCMGENERATION(null);
             }
             if (\array_key_exists('MODEL_TRAINING', $data) && $data['MODEL_TRAINING'] !== null) {
-                $object->setMODELTRAINING($this->denormalizer->denormalize($data['MODEL_TRAINING'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class, 'json', $context));
+                $object->setMODELTRAINING($this->denormalizer->denormalize($data['MODEL_TRAINING'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class, 'json', $context));
                 unset($data['MODEL_TRAINING']);
             } elseif (\array_key_exists('MODEL_TRAINING', $data) && $data['MODEL_TRAINING'] === null) {
                 $object->setMODELTRAINING(null);
             }
             if (\array_key_exists('TEXTURE_GENERATION', $data) && $data['TEXTURE_GENERATION'] !== null) {
-                $object->setTEXTUREGENERATION($this->denormalizer->denormalize($data['TEXTURE_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class, 'json', $context));
+                $object->setTEXTUREGENERATION($this->denormalizer->denormalize($data['TEXTURE_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class, 'json', $context));
                 unset($data['TEXTURE_GENERATION']);
             } elseif (\array_key_exists('TEXTURE_GENERATION', $data) && $data['TEXTURE_GENERATION'] === null) {
                 $object->setTEXTUREGENERATION(null);
             }
             if (\array_key_exists('UNIVERSAL_UPSCALER', $data) && $data['UNIVERSAL_UPSCALER'] !== null) {
-                $object->setUNIVERSALUPSCALER($this->denormalizer->denormalize($data['UNIVERSAL_UPSCALER'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class, 'json', $context));
+                $object->setUNIVERSALUPSCALER($this->denormalizer->denormalize($data['UNIVERSAL_UPSCALER'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class, 'json', $context));
                 unset($data['UNIVERSAL_UPSCALER']);
             } elseif (\array_key_exists('UNIVERSAL_UPSCALER', $data) && $data['UNIVERSAL_UPSCALER'] === null) {
                 $object->setUNIVERSALUPSCALER(null);
@@ -137,7 +137,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false];
+            return [\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false];
         }
     }
 } else {
@@ -150,12 +150,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
+            return $type === \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class;
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -166,48 +166,48 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams();
+            $object = new \LeonardoAI\Model\PricingCalculatorPostBodyServiceParams();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
             if (\array_key_exists('IMAGE_GENERATION', $data) && $data['IMAGE_GENERATION'] !== null) {
-                $object->setIMAGEGENERATION($this->denormalizer->denormalize($data['IMAGE_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class, 'json', $context));
+                $object->setIMAGEGENERATION($this->denormalizer->denormalize($data['IMAGE_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsIMAGEGENERATION::class, 'json', $context));
                 unset($data['IMAGE_GENERATION']);
             } elseif (\array_key_exists('IMAGE_GENERATION', $data) && $data['IMAGE_GENERATION'] === null) {
                 $object->setIMAGEGENERATION(null);
             }
             if (\array_key_exists('FANTASY_AVATAR_GENERATION', $data) && $data['FANTASY_AVATAR_GENERATION'] !== null) {
-                $object->setFANTASYAVATARGENERATION($this->denormalizer->denormalize($data['FANTASY_AVATAR_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class, 'json', $context));
+                $object->setFANTASYAVATARGENERATION($this->denormalizer->denormalize($data['FANTASY_AVATAR_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsFANTASYAVATARGENERATION::class, 'json', $context));
                 unset($data['FANTASY_AVATAR_GENERATION']);
             } elseif (\array_key_exists('FANTASY_AVATAR_GENERATION', $data) && $data['FANTASY_AVATAR_GENERATION'] === null) {
                 $object->setFANTASYAVATARGENERATION(null);
             }
             if (\array_key_exists('MOTION_GENERATION', $data) && $data['MOTION_GENERATION'] !== null) {
-                $object->setMOTIONGENERATION($this->denormalizer->denormalize($data['MOTION_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class, 'json', $context));
+                $object->setMOTIONGENERATION($this->denormalizer->denormalize($data['MOTION_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMOTIONGENERATION::class, 'json', $context));
                 unset($data['MOTION_GENERATION']);
             } elseif (\array_key_exists('MOTION_GENERATION', $data) && $data['MOTION_GENERATION'] === null) {
                 $object->setMOTIONGENERATION(null);
             }
             if (\array_key_exists('LCM_GENERATION', $data) && $data['LCM_GENERATION'] !== null) {
-                $object->setLCMGENERATION($this->denormalizer->denormalize($data['LCM_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class, 'json', $context));
+                $object->setLCMGENERATION($this->denormalizer->denormalize($data['LCM_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsLCMGENERATION::class, 'json', $context));
                 unset($data['LCM_GENERATION']);
             } elseif (\array_key_exists('LCM_GENERATION', $data) && $data['LCM_GENERATION'] === null) {
                 $object->setLCMGENERATION(null);
             }
             if (\array_key_exists('MODEL_TRAINING', $data) && $data['MODEL_TRAINING'] !== null) {
-                $object->setMODELTRAINING($this->denormalizer->denormalize($data['MODEL_TRAINING'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class, 'json', $context));
+                $object->setMODELTRAINING($this->denormalizer->denormalize($data['MODEL_TRAINING'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsMODELTRAINING::class, 'json', $context));
                 unset($data['MODEL_TRAINING']);
             } elseif (\array_key_exists('MODEL_TRAINING', $data) && $data['MODEL_TRAINING'] === null) {
                 $object->setMODELTRAINING(null);
             }
             if (\array_key_exists('TEXTURE_GENERATION', $data) && $data['TEXTURE_GENERATION'] !== null) {
-                $object->setTEXTUREGENERATION($this->denormalizer->denormalize($data['TEXTURE_GENERATION'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class, 'json', $context));
+                $object->setTEXTUREGENERATION($this->denormalizer->denormalize($data['TEXTURE_GENERATION'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsTEXTUREGENERATION::class, 'json', $context));
                 unset($data['TEXTURE_GENERATION']);
             } elseif (\array_key_exists('TEXTURE_GENERATION', $data) && $data['TEXTURE_GENERATION'] === null) {
                 $object->setTEXTUREGENERATION(null);
             }
             if (\array_key_exists('UNIVERSAL_UPSCALER', $data) && $data['UNIVERSAL_UPSCALER'] !== null) {
-                $object->setUNIVERSALUPSCALER($this->denormalizer->denormalize($data['UNIVERSAL_UPSCALER'], \Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class, 'json', $context));
+                $object->setUNIVERSALUPSCALER($this->denormalizer->denormalize($data['UNIVERSAL_UPSCALER'], \LeonardoAI\Model\PricingCalculatorPostBodyServiceParamsUNIVERSALUPSCALER::class, 'json', $context));
                 unset($data['UNIVERSAL_UPSCALER']);
             } elseif (\array_key_exists('UNIVERSAL_UPSCALER', $data) && $data['UNIVERSAL_UPSCALER'] === null) {
                 $object->setUNIVERSALUPSCALER(null);
@@ -259,7 +259,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false];
+            return [\LeonardoAI\Model\PricingCalculatorPostBodyServiceParams::class => false];
         }
     }
 }

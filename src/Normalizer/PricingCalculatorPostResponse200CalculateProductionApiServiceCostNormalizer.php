@@ -8,9 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Normalizer;
+namespace LeonardoAI\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
+use LeonardoAI\Runtime\Normalizer\CheckArray;
+use LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -18,8 +20,6 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Ydrus\LeonardoAI\Runtime\Normalizer\CheckArray;
-use Ydrus\LeonardoAI\Runtime\Normalizer\ValidatorTrait;
 
 if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
     class PricingCalculatorPostResponse200CalculateProductionApiServiceCostNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
@@ -31,12 +31,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
+            return $type === \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
         }
 
         public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -47,7 +47,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost();
+            $object = new \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -81,7 +81,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false];
+            return [\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false];
         }
     }
 } else {
@@ -94,12 +94,12 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function supportsDenormalization($data, $type, ?string $format = null, array $context = []): bool
         {
-            return $type === \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
+            return $type === \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
         }
 
         public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
         {
-            return is_object($data) && get_class($data) === \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
+            return is_object($data) && get_class($data) === \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class;
         }
 
         public function denormalize($data, $type, $format = null, array $context = [])
@@ -110,7 +110,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost();
+            $object = new \LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -147,7 +147,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
 
         public function getSupportedTypes(?string $format = null): array
         {
-            return [\Ydrus\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false];
+            return [\LeonardoAI\Model\PricingCalculatorPostResponse200CalculateProductionApiServiceCost::class => false];
         }
     }
 }

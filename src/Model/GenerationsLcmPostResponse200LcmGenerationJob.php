@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Model;
+namespace LeonardoAI\Model;
 
 class GenerationsLcmPostResponse200LcmGenerationJob extends \ArrayObject
 {

@@ -8,16 +8,16 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class UploadModelAsset extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class UploadModelAsset extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
 
     /**
      * This endpoint returns presigned details to upload a 3D model to S3.
      */
-    public function __construct(?\Ydrus\LeonardoAI\Model\Models3dUploadPostBody $requestBody = null)
+    public function __construct(?\LeonardoAI\Model\Models3dUploadPostBody $requestBody = null)
     {
         $this->body = $requestBody;
     }
@@ -34,7 +34,7 @@ class UploadModelAsset extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint imp
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Ydrus\LeonardoAI\Model\Models3dUploadPostBody) {
+        if ($this->body instanceof \LeonardoAI\Model\Models3dUploadPostBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -47,14 +47,14 @@ class UploadModelAsset extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint imp
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200|null
+     * @return \LeonardoAI\Model\Models3dUploadPostResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\Models3dUploadPostResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\Models3dUploadPostResponse200', 'json');
         }
     }
 

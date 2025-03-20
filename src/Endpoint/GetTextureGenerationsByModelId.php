@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class GetTextureGenerationsByModelId extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class GetTextureGenerationsByModelId extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
     protected $modelId;
 
     /**
@@ -25,7 +25,7 @@ class GetTextureGenerationsByModelId extends \Ydrus\LeonardoAI\Runtime\Client\Ba
      * @var int $limit
      *          }
      */
-    public function __construct(string $modelId, ?\Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetBody $requestBody = null, array $queryParameters = [])
+    public function __construct(string $modelId, ?\LeonardoAI\Model\GenerationsTextureModelModelIdGetBody $requestBody = null, array $queryParameters = [])
     {
         $this->modelId = $modelId;
         $this->body = $requestBody;
@@ -44,7 +44,7 @@ class GetTextureGenerationsByModelId extends \Ydrus\LeonardoAI\Runtime\Client\Ba
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetBody) {
+        if ($this->body instanceof \LeonardoAI\Model\GenerationsTextureModelModelIdGetBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -69,14 +69,14 @@ class GetTextureGenerationsByModelId extends \Ydrus\LeonardoAI\Runtime\Client\Ba
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200|null
+     * @return \LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\GenerationsTextureModelModelIdGetResponse200', 'json');
         }
     }
 

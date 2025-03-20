@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class GetDatasetById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class GetDatasetById extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
     protected $id;
 
     /**
@@ -46,14 +46,14 @@ class GetDatasetById extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint imple
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200|null
+     * @return \LeonardoAI\Model\DatasetsIdGetResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\DatasetsIdGetResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\DatasetsIdGetResponse200', 'json');
         }
     }
 

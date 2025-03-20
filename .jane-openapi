@@ -2,7 +2,7 @@
 
 return [
     'openapi-file' => __DIR__ . '/open-api.json',
-    'namespace' => 'Ydrus\LeonardoAI',
+    'namespace' => 'LeonardoAI',
     'directory' => __DIR__ . '/src',
     'use-fixer' => true,
 ];

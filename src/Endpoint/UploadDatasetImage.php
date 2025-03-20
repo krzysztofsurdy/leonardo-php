@@ -8,11 +8,11 @@ declare(strict_types=1);
  * Do no edit it directly.
  */
 
-namespace Ydrus\LeonardoAI\Endpoint;
+namespace LeonardoAI\Endpoint;
 
-class UploadDatasetImage extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint implements \Ydrus\LeonardoAI\Runtime\Client\Endpoint
+class UploadDatasetImage extends \LeonardoAI\Runtime\Client\BaseEndpoint implements \LeonardoAI\Runtime\Client\Endpoint
 {
-    use \Ydrus\LeonardoAI\Runtime\Client\EndpointTrait;
+    use \LeonardoAI\Runtime\Client\EndpointTrait;
     protected $datasetId;
 
     /**
@@ -20,7 +20,7 @@ class UploadDatasetImage extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint i
      *
      * @param string $datasetId _"datasetId" is required
      */
-    public function __construct(string $datasetId, \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostBody $requestBody)
+    public function __construct(string $datasetId, \LeonardoAI\Model\DatasetsDatasetIdUploadPostBody $requestBody)
     {
         $this->datasetId = $datasetId;
         $this->body = $requestBody;
@@ -38,7 +38,7 @@ class UploadDatasetImage extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint i
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostBody) {
+        if ($this->body instanceof \LeonardoAI\Model\DatasetsDatasetIdUploadPostBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -51,14 +51,14 @@ class UploadDatasetImage extends \Ydrus\LeonardoAI\Runtime\Client\BaseEndpoint i
     }
 
     /**
-     * @return \Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200|null
+     * @return \LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Ydrus\LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200', 'json');
+            return $serializer->deserialize($body, 'LeonardoAI\Model\DatasetsDatasetIdUploadPostResponse200', 'json');
         }
     }
 
